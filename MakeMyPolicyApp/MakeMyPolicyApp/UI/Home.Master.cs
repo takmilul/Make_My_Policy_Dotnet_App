@@ -1,6 +1,7 @@
 ﻿using MakeMyPolicyApp.BLL;
 using MakeMyPolicyApp.ModelClass;
 using System;
+using System.Linq;
 using System.Net;
 
 namespace MakeMyPolicyApp.UI
@@ -87,51 +88,57 @@ namespace MakeMyPolicyApp.UI
 			string password = passwordLoginInputBox.Value;
 
 			//User user = _signupManager.LoginUser(userNameOrEmail, password);
+			string[] adminAccess = new[] { "monjurul", "789", "biplob_zaman", "123", "mahmud_pulap", "456", "khanom.sumaiya", "6969" };
 
-
-			if (userNameOrEmail == "monjurul" && password == "789")
+			for (int i = 0; i < adminAccess.Length; i += 2)
 			{
-				Session["UserId"] = 0;
-				Session["UserName"] = "Monjurul";
-				Session["UserType"] = "Admin";
-				Response.Cookies["UserId"].Value = 0.ToString();
-				Response.Cookies["UserName"].Value = "Monjurul";
-				Response.Cookies["UserType"].Value = "Admin";
-				Response.Cookies["UserId"].Expires = DateTime.Now.AddYears(1);
-				Response.Cookies["UserName"].Expires = DateTime.Now.AddYears(1);
-				Response.Cookies["UserType"].Expires = DateTime.Now.AddYears(1);
-				/*var smtp = new System.Net.Mail.SmtpClient();
+				if (userNameOrEmail == adminAccess[i] && password == adminAccess[i + 1])
 				{
-					smtp.Host = "smtp.gmail.com";
-					smtp.Port = 587;
-					smtp.EnableSsl = true;
-					smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-					smtp.Credentials = new NetworkCredential("makemypolicy472", "123monjur");
-					smtp.Timeout = 20000;
+					char[] delimiterChars = { '_', '.' };
+					string userName = adminAccess[i].Split(delimiterChars)[0].First().ToString().ToUpper() + adminAccess[i].Split(delimiterChars)[0].Substring(1) + " " + adminAccess[i].Split(delimiterChars)[1];
+
+					Session["UserId"] = 0;
+					Session["UserName"] = userName;
+					Session["UserType"] = "Admin";
+					Response.Cookies["UserId"].Value = 0.ToString();
+					Response.Cookies["UserName"].Value = userName;
+					Response.Cookies["UserType"].Value = "Admin";
+					Response.Cookies["UserId"].Expires = DateTime.Now.AddYears(1);
+					Response.Cookies["UserName"].Expires = DateTime.Now.AddYears(1);
+					Response.Cookies["UserType"].Expires = DateTime.Now.AddYears(1);
+					/*var smtp = new System.Net.Mail.SmtpClient();
+					{
+						smtp.Host = "smtp.gmail.com";
+						smtp.Port = 587;
+						smtp.EnableSsl = true;
+						smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+						smtp.Credentials = new NetworkCredential("makemypolicy472", "123monjur");
+						smtp.Timeout = 20000;
+					}
+					// Passing values to smtp object
+					try
+					{
+						smtp.Send("makemypolicy472@gmail.com", user.Email, "Subject", "Mail body");
+					}
+					catch (Exception exception)
+					{
+						//Console.WriteLine(exception);
+						//throw;
+					}*/
+
+					Response.Redirect("AgentMessageListUI.aspx");
+					break;
+
+					//Response.Write("mail Send");
+					//document.getElementById('login-validation-message').innerHTML = 'Wrong User Name or Password!';
 				}
-				// Passing values to smtp object
-				try
+				else
 				{
-					smtp.Send("makemypolicy472@gmail.com", user.Email, "Subject", "Mail body");
+					Session["ErrorMessage"] = "Wrong User Name or Password!";
+					//string myScriptValue = "function callMe() {alert('You pressed Me!'); }";
+					//ScriptManager.RegisterStartupScript(this, Page.GetType(), "key", "javascript:MyFunction()", true);
+					//Response.Write("<script>alert('userNameLoginInputBox');</script>");
 				}
-				catch (Exception exception)
-				{
-					//Console.WriteLine(exception);
-					//throw;
-				}*/
-
-				Response.Redirect("AgentMessageListUI.aspx");
-
-
-				//Response.Write("mail Send");
-				//document.getElementById('login-validation-message').innerHTML = 'Wrong User Name or Password!';
-			}
-			else
-			{
-				Session["ErrorMessage"] = "Wrong User Name or Password!";
-				//string myScriptValue = "function callMe() {alert('You pressed Me!'); }";
-				//ScriptManager.RegisterStartupScript(this, Page.GetType(), "key", "javascript:MyFunction()", true);
-				//Response.Write("<script>alert('userNameLoginInputBox');</script>");
 			}
 		}
 	}
