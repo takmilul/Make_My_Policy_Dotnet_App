@@ -95,7 +95,17 @@ namespace MakeMyPolicyApp.UI
 				if (userNameOrEmail == adminAccess[i] && password == adminAccess[i + 1])
 				{
 					char[] delimiterChars = { '_', '.' };
-					string userName = adminAccess[i].Split(delimiterChars)[0].First().ToString().ToUpper() + adminAccess[i].Split(delimiterChars)[0].Substring(1) + " " + adminAccess[i].Split(delimiterChars)[1];
+					string[] nameArray = adminAccess[i].Split(delimiterChars);
+					string userName;
+
+					if (nameArray.Length > 1)
+					{
+						userName = nameArray[0].First().ToString().ToUpper() + nameArray[0].Substring(1) + " " + nameArray[1];
+					}
+					else
+					{
+						userName = nameArray[0].First().ToString().ToUpper() + nameArray[0].Substring(1);
+					}
 
 					Session["UserId"] = 0;
 					Session["UserName"] = userName;
