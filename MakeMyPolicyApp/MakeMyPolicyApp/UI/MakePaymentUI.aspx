@@ -32,7 +32,8 @@
 						<tr class="bg-danger">
 							<th scope="row">3</th>
 							<td class="bg-danger">Pay by eamil</td>
-							<td class="bg-danger"><a href="MakePaymentEmail.aspx">Send a mail</a></td>
+							<td class="bg-warning">Active</td>
+							<%--<td class="bg-danger"><a href="MakePaymentEmail.aspx">Send a mail</a></td>--%>
 						</tr>
 						<%--<tr class="bg-info">
 							<th scope="row">3</th>

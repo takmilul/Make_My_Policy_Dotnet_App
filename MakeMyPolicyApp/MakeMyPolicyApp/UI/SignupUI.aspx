@@ -128,18 +128,11 @@
 	<script>
 		
 		$(document).ready(function () {
-			/*$('.datepicker').datepicker({
+			$('.datepicker').datepicker({
 				format: "dd/mm/yyyy",
 				autoclose: true
 			}, function() {
 				$(this).datepicker().hide();
-			});*/
-
-			$('body').on('focus', ".datepicker", function () {
-
-				$(this).datepicker({ format: "mm/dd/yyyy" }).on('changeDate', function (ev) {
-					$(this).datepicker('hide');
-				});
 			});
 		});
 

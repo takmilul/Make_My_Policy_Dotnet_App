@@ -66,6 +66,7 @@
     <Content Include="Contents\Banner4.jpg" />
     <Content Include="Contents\Banner5.jpg" />
     <Content Include="Contents\Banner6.jpg" />
+    <Content Include="Contents\helpline_icon.png" />
     <Content Include="Contents\insurance.jpg" />
     <Content Include="Contents\lifeinsurance.jpg" />
     <Content Include="Content\bootstrap-datepicker.css" />

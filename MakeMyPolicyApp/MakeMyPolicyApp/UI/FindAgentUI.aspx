@@ -5,23 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="content" runat="server">
 	<div class="container big-card">
-        <%--<div style="height: auto">
-            <div class="form-horizontal">
-                <asp:Label CssClass="control-label" ID="Label6" runat="server" Text="User or Customer Manager:"></asp:Label>
-                <div class="col-12">
-                    <input type="radio" name="radio1" id="UserRadioButton" runat="server" clientidmode="Static" value="user" checked="True" />User
-				
-                    <br />
-                    <input type="radio" name="radio1" id="CMgrRadioButton" runat="server" clientidmode="Static" value="cMgr" />Customer Manager
-                
-                </div>
-
-                <div class="row">
-                    <div class="col-5"></div>
-                    <asp:Button ID="submitButton" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="submitButton_Click"  />
-                </div>
-            </div>
-        </div>--%>
+        
 		<% if (Session["UserId"] == null || Session["UserId"].ToString() == "undefined")
 		   { %>
 					<div class="row align-content-center">
@@ -74,7 +58,7 @@
 			<div class="col-11 outset-border m-2">
 				<p>
 					<span>1) Syed Monjurul Islam</span> <br/>
-					<span class="ml-3">director of delta life insurance company ltd.</span> <br/>
+					<span class="ml-3">Director of delta life insurance company ltd.</span> <br/>
 					<span class="ml-3" style="color: royalblue">syed.monjur36@gmail.com</span>
 				</p>
 			</div>
@@ -92,7 +76,7 @@
 			<div class="col-11 outset-border m-2">
 				<p>
 					<span>3) Mahamuduzzaman Pulak</span> <br/>
-					<span class="ml-3">director of Popular life insurance ltd.</span><br/>
+					<span class="ml-3">Director of Popular life insurance ltd.</span><br/>
 					<span class="ml-3" style="color: royalblue">md_mahmud_pulap42@yahoo.com</span>
 				</p>
 			</div>

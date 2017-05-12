@@ -196,8 +196,9 @@ function radioButtonValidation() {
 		var $this = $(this);
 		var $id = $this.attr('id');
 		var $value = $('#' + $id + ' input:checked').val();
+		var $val = $this.val();
 		if ($this.hasClass("mandatory")) {
-			if ($value === undefined) {
+			if ($value === undefined && $val==="") {
 				enableFormSubmit = false;
 				
 			}
@@ -331,3 +332,4 @@ $(function () {
 	/*$(window).scroll(stickyRelocateTop);
 	stickyRelocateTop();*/
 });
+
